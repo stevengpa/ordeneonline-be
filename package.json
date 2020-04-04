@@ -1,0 +1,43 @@
+{
+  "name": "ordeneonline-be",
+  "version": "0.1.0",
+  "description": "Ordene Online es una iniciativa open source para ayudar a las personas poner a disposición sus productos tales como comida, cuidado persona, entre otros, de tal forma que, las personas puedan crear órdenes de compra sin procesar pagos online, pero dirigido por teletrabajo como una primera etapa.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
+    "build": "babel src -d dist",
+    "test": "mocha --require @babel/register",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevengpa/ordeneonline-be.git"
+  },
+  "author": "Steven Pérez Alfaro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stevengpa/ordeneonline-be/issues"
+  },
+  "homepage": "https://github.com/stevengpa/ordeneonline-be#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "nodemon": "^2.0.2"
+  }
+}
