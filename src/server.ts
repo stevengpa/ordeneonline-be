@@ -1,9 +1,14 @@
 require('dotenv').config();
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
+import express from 'express';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import mongoose from 'mongoose';
+
+// Declaration Global
+import('./config/declareGlobal');
+
+import userRoutes from './routes/User/user.routes';
 
 const app = express();
 
@@ -12,7 +17,13 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use((req, res, next) => {
+  req.userId = '5e88f8341c9d440000b7019e';
+  next();
+});
+
 // Routes
+app.use('/profile', userRoutes);
 
 const PORT = process.env.PORT || 3030;
 const { MONGO_USER, MONGO_PWD, MONGO_DB, MONGO_HOST } = process.env;
@@ -25,7 +36,7 @@ mongoose.connect(
   }
 )
   .then(() => {
-    app.listen(() => {
+    app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
   })
